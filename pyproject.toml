@@ -1,0 +1,20 @@
+[project]
+dependencies = [
+  "playwright",
+  "httpx",
+  "aiofiles",
+  "beautifulsoup4",
+  "fire",
+  "injector",
+  "langchain",
+  "langchain-ollama",
+  "json-repair",
+]
+name = "taiwan-judicial-judgements-crawler"
+requires-python = ">=3.13,<3.14"
+version = "0.1.0"
+
+[tool.playwright]
+browsers = ["chromium"]
+
+pythonpath = ["./src"]
