@@ -7,10 +7,10 @@ dependencies = [
   "fire",
   "injector",
   "langchain",
-  "langchain-ollama",
+  "langchain_openai",
   "json-repair",
 ]
-name = "taiwan-judicial-judgements-crawler"
+name = "taiwan-judicial-judgments-crawler"
 requires-python = ">=3.13,<3.14"
 version = "0.1.0"
 

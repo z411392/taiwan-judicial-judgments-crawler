@@ -1,16 +1,17 @@
 from injector import Module, Binder, InstanceProvider
-from langchain_ollama import ChatOllama
+from langchain_openai import ChatOpenAI
 from os import getenv
 
 
 class GeneralModule(Module):
     def configure(self, binder: Binder):
         binder.bind(
-            ChatOllama,
+            ChatOpenAI,
             InstanceProvider(
-                ChatOllama(
+                ChatOpenAI(
                     model=getenv("LLM_MODEL"),
-                    base_url=getenv("LLM_URL"),
+                    openai_api_key=getenv("LLM_KEY"),
+                    openai_api_base=getenv("LLM_URL"),
                 ),
             ),
         )

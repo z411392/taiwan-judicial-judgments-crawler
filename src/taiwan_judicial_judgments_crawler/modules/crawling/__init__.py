@@ -6,7 +6,7 @@ from taiwan_judicial_judgments_crawler.adapters.file_system.judgement_file_syste
     JudgementFileSystemAdapter,
 )
 from langchain.schema import SystemMessage
-from langchain_ollama import ChatOllama
+from langchain_openai import ChatOpenAI
 from taiwan_judicial_judgments_crawler.modules.crawling.domain.services.json_parser import (
     JsonParser,
 )
@@ -17,7 +17,7 @@ class JsonParserProvider(Provider[JsonParser]):
         prompt = ""
         with open("prompt.md", "r", encoding="utf-8") as handle:
             prompt = handle.read()
-        llm = injector.get(ChatOllama)
+        llm = injector.get(ChatOpenAI)
         system_message = SystemMessage(content=prompt)
         return JsonParser(llm, system_message)
 

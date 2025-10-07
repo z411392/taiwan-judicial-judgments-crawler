@@ -1,5 +1,5 @@
 from injector import inject
-from langchain_ollama import ChatOllama
+from langchain_openai import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
 from logging import getLogger, Logger, LoggerAdapter
 from re import search
@@ -12,7 +12,7 @@ class InvalidJson(Exception):
 
 
 class JsonParser:
-    _llm: ChatOllama
+    _llm: ChatOpenAI
     _prompt: str
     _system_message: SystemMessage
     _logger: Logger
@@ -20,7 +20,7 @@ class JsonParser:
     @inject
     def __init__(
         self,
-        llm: ChatOllama,
+        llm: ChatOpenAI,
         system_message: SystemMessage,
     ):
         self._llm = llm
